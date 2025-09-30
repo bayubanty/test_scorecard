@@ -770,6 +770,111 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        /* Rankings Page Styles */
+        .rankings-page {
+            display: none;
+        }
+
+        .rankings-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+        }
+
+        .rankings-section h2 {
+            color: #0053a1;
+            margin-bottom: 20px;
+            font-size: 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .rankings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .rankings-table th {
+            background-color: #f0f0f0;
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 2px solid #ddd;
+            font-weight: 600;
+        }
+
+        .rankings-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .rankings-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .rank-number {
+            font-weight: bold;
+            width: 50px;
+            text-align: center;
+        }
+
+        /* Methodology Page Styles */
+        .methodology-page {
+            display: none;
+        }
+
+        .methodology-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+        }
+
+        .methodology-section h2 {
+            color: #0053a1;
+            margin-bottom: 20px;
+            font-size: 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .methodology-section h3 {
+            color: #5a9e45;
+            margin: 25px 0 15px;
+            font-size: 20px;
+        }
+
+        .methodology-section p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .methodology-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .methodology-section li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .metric-explanation {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #6fb353;
+        }
+
+        .metric-explanation h4 {
+            color: #0053a1;
+            margin-bottom: 10px;
+        }
+
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .top-nav {
@@ -842,6 +947,11 @@
             .header-content p {
                 font-size: 16px;
             }
+            
+            .rankings-table {
+                display: block;
+                overflow-x: auto;
+            }
         }
     </style>
 </head>
@@ -852,9 +962,9 @@
             <div class="container">
                 <div class="top-nav">
                     <div class="nav-links">
-                        <a href="#">Rankings</a>
-                        <a href="#">Methodology</a>
-                        <a href="#">About Us</a>
+                        <a href="#" id="rankings-link">Rankings</a>
+                        <a href="#" id="methodology-link">Methodology</a>
+                        <a href="https://georgiawatch.org" target="_blank">About Us</a>
                     </div>
                 </div>
                 
@@ -1072,10 +1182,10 @@
             <div class="container">
                 <div class="footer-content">
                     <ul class="footer-links">
-                        <li><a href="#">Georgia Watch</a></li>
-                        <li><a href="#">Rankings</a></li>
-                        <li><a href="#">Methodology</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#" id="home-link-footer">Home</a></li>
+                        <li><a href="#" id="rankings-link-footer">Rankings</a></li>
+                        <li><a href="#" id="methodology-link-footer">Methodology</a></li>
+                        <li><a href="https://georgiawatch.org" target="_blank">About Us</a></li>
                         <li><a href="#">Donate</a></li>
                         <li><a href="#">Legal/Privacy</a></li>
                         <li><a href="#">Site Map</a></li>
@@ -1095,9 +1205,9 @@
                 <div class="top-nav">
                     <div class="nav-links">
                         <a href="#" id="back-to-main">Home</a>
-                        <a href="#">Rankings</a>
-                        <a href="#">Methodology</a>
-                        <a href="#">About Us</a>
+                        <a href="#" id="rankings-link-details">Rankings</a>
+                        <a href="#" id="methodology-link-details">Methodology</a>
+                        <a href="https://georgiawatch.org" target="_blank">About Us</a>
                     </div>
                 </div>
                 
@@ -1310,9 +1420,292 @@
                 <div class="footer-content">
                     <ul class="footer-links">
                         <li><a href="#" id="back-to-main-footer">Home</a></li>
-                        <li><a href="#">Rankings</a></li>
-                        <li><a href="#">Methodology</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#" id="rankings-link-details-footer">Rankings</a></li>
+                        <li><a href="#" id="methodology-link-details-footer">Methodology</a></li>
+                        <li><a href="https://georgiawatch.org" target="_blank">About Us</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Legal/Privacy</a></li>
+                    </ul>
+                    <div class="copyright">
+                        <p>Georgia Watch is a non-profit, nonpartisan 501(c)3 organization. © 2024 Georgia Watch. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Rankings Page -->
+    <div id="rankings-page" class="rankings-page">
+        <header>
+            <div class="container">
+                <div class="top-nav">
+                    <div class="nav-links">
+                        <a href="#" id="home-link-rankings">Home</a>
+                        <a href="#" id="methodology-link-rankings">Methodology</a>
+                        <a href="https://georgiawatch.org" target="_blank">About Us</a>
+                    </div>
+                </div>
+                
+                <div class="logo-container">
+                    <div class="logo-img">
+                        <span>GEORGIA WATCH</span>
+                        <span>Hospital Performance Scorecard</span>
+                    </div>
+                </div>
+                
+                <div class="header-content">
+                    <h1>GEORGIA HOSPITAL RANKINGS</h1>
+                    <p>Top performing hospitals based on comprehensive metrics</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="rankings-section">
+                <h2>Overall Hospital Rankings</h2>
+                <p>Hospitals are ranked based on their overall composite score, which combines performance across all metrics including financial transparency, community benefit spending, healthcare affordability, and access to care.</p>
+                
+                <table class="rankings-table">
+                    <thead>
+                        <tr>
+                            <th width="10%">Rank</th>
+                            <th width="10%">Grade</th>
+                            <th width="50%">Hospital Name</th>
+                            <th width="15%">City</th>
+                            <th width="15%">Type</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rankings-results">
+                        <!-- Rankings will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="rankings-section">
+                <h2>Top Hospitals by Category</h2>
+                
+                <h3>Financial Transparency & Community Benefit</h3>
+                <table class="rankings-table">
+                    <thead>
+                        <tr>
+                            <th width="10%">Rank</th>
+                            <th width="50%">Hospital Name</th>
+                            <th width="20%">City</th>
+                            <th width="20%">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="financial-rankings">
+                        <!-- Financial rankings will be populated by JavaScript -->
+                    </tbody>
+                </table>
+                
+                <h3>Healthcare Affordability & Billing</h3>
+                <table class="rankings-table">
+                    <thead>
+                        <tr>
+                            <th width="10%">Rank</th>
+                            <th width="50%">Hospital Name</th>
+                            <th width="20%">City</th>
+                            <th width="20%">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="affordability-rankings">
+                        <!-- Affordability rankings will be populated by JavaScript -->
+                    </tbody>
+                </table>
+                
+                <h3>Healthcare Access & Social Responsibility</h3>
+                <table class="rankings-table">
+                    <thead>
+                        <tr>
+                            <th width="10%">Rank</th>
+                            <th width="50%">Hospital Name</th>
+                            <th width="20%">City</th>
+                            <th width="20%">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="access-rankings">
+                        <!-- Access rankings will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <ul class="footer-links">
+                        <li><a href="#" id="home-link-rankings-footer">Home</a></li>
+                        <li><a href="#" id="methodology-link-rankings-footer">Methodology</a></li>
+                        <li><a href="https://georgiawatch.org" target="_blank">About Us</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Legal/Privacy</a></li>
+                    </ul>
+                    <div class="copyright">
+                        <p>Georgia Watch is a non-profit, nonpartisan 501(c)3 organization. © 2024 Georgia Watch. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Methodology Page -->
+    <div id="methodology-page" class="methodology-page">
+        <header>
+            <div class="container">
+                <div class="top-nav">
+                    <div class="nav-links">
+                        <a href="#" id="home-link-methodology">Home</a>
+                        <a href="#" id="rankings-link-methodology">Rankings</a>
+                        <a href="https://georgiawatch.org" target="_blank">About Us</a>
+                    </div>
+                </div>
+                
+                <div class="logo-container">
+                    <div class="logo-img">
+                        <span>GEORGIA WATCH</span>
+                        <span>Hospital Performance Scorecard</span>
+                    </div>
+                </div>
+                
+                <div class="header-content">
+                    <h1>METHODOLOGY</h1>
+                    <p>How we evaluate and score Georgia hospitals</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="methodology-section">
+                <h2>Our Approach</h2>
+                <p>The Georgia Hospital System Scorecard evaluates hospitals across four key dimensions of performance: Financial Transparency & Community Benefit, Community Benefit Spending, Healthcare Affordability & Billing, and Healthcare Access & Social Responsibility.</p>
+                
+                <p>Our methodology combines publicly available data with proprietary analysis to provide a comprehensive view of hospital performance. Each hospital receives an overall grade (A-F) based on its composite score across all metrics.</p>
+                
+                <h3>Data Sources</h3>
+                <p>We utilize data from multiple sources to ensure a comprehensive evaluation:</p>
+                <ul>
+                    <li>IRS Form 990 filings for nonprofit hospitals</li>
+                    <li>Medicare Cost Reports</li>
+                    <li>CMS Hospital Compare data</li>
+                    <li>State health department reports</li>
+                    <li>Hospital financial statements and annual reports</li>
+                    <li>Community health needs assessments</li>
+                </ul>
+                
+                <h3>Scoring System</h3>
+                <p>Hospitals receive scores on a 0-100 scale for each metric, which are then converted to star ratings (1-5 stars). The overall grade is determined by weighting and combining these scores:</p>
+                <ul>
+                    <li><strong>A (90-100):</strong> Excellent performance across all metrics</li>
+                    <li><strong>B (80-89):</strong> Strong performance with minor areas for improvement</li>
+                    <li><strong>C (70-79):</strong> Average performance with several areas needing attention</li>
+                    <li><strong>D (60-69):</strong> Below average performance with significant concerns</li>
+                    <li><strong>F (0-59):</strong> Poor performance requiring immediate improvement</li>
+                </ul>
+            </div>
+            
+            <div class="methodology-section">
+                <h2>Metric Definitions</h2>
+                
+                <h3>Financial Transparency & Community Benefit</h3>
+                
+                <div class="metric-explanation">
+                    <h4>Balance Growth</h4>
+                    <p>Measures the hospital's financial growth and stability over time, including trends in net assets, operating margins, and reserves.</p>
+                </div>
+                
+                <div class="metric-explanation">
+                    <h4>Transparency</h4>
+                    <p>Assessment of financial disclosure and reporting practices, including clarity of financial statements and accessibility of pricing information.</p>
+                </div>
+                
+                <div class="metric-explanation">
+                    <h4>Fiscal Health</h4>
+                    <p>Overall financial stability and resource management, including debt levels, liquidity, and long-term sustainability.</p>
+                </div>
+                
+                <div class="metric-explanation">
+                    <h4>Staffing</h4>
+                    <p>Adequacy and quality of healthcare staffing, including nurse-to-patient ratios, staff qualifications, and employee satisfaction.</p>
+                </div>
+                
+                <h3>Community Benefit Spending</h3>
+                
+                <div class="metric-explanation">
+                    <h4>Tax Benefit Utilization</h4>
+                    <p>Effective use of tax benefits for community programs, comparing tax exemption value to community benefit spending.</p>
+                </div>
+                
+                <div class="metric-explanation">
+                    <h4>Quality of Community Benefit Spending</h4>
+                    <p>Effectiveness and impact of community benefit programs, including alignment with community health needs.</p>
+                </div>
+                
+                <div class="metric-explanation">
+                    <h4>Strategic Use of Resources</h4>
+                    <p>Strategic allocation of community benefit resources to address identified community health priorities.</p>
+                </div>
+                
+                <h3>Healthcare Affordability & Billing</h3>
+                
+                <div class="metric-explanation">
+                    <h4>Financial Burden on Patients</h4>
+                    <p>Impact of healthcare costs on patients' financial wellbeing, including out-of-pocket expenses and medical debt.</p>
+                </div>
+                
+                <div class="metric-explanation">
+                    <h4>Charity Care Provision</h4>
+                    <p>Extent and quality of charity care services provided to low-income and uninsured patients.</p>
+                </div>
+                
+                <div class="metric-explanation">
+                    <h4>Medical Debt Management</h4>
+                    <p>Approaches to managing and preventing patient medical debt, including billing practices and financial assistance programs.</p>
+                </div>
+                
+                <h3>Healthcare Access & Social Responsibility</h3>
+                
+                <div class="metric-explanation">
+                    <h4>Range of Services</h4>
+                    <p>Diversity and comprehensiveness of healthcare services offered, including specialty care and preventive services.</p>
+                </div>
+                
+                <div class="metric-explanation">
+                    <h4>Demographic Alignment</h4>
+                    <p>Alignment with community demographic needs, including services for vulnerable populations.</p>
+                </div>
+                
+                <div class="metric-explanation">
+                    <h4>Workforce Training</h4>
+                    <p>Investment in staff training and development, including continuing education and career advancement opportunities.</p>
+                </div>
+                
+                <div class="metric-explanation">
+                    <h4>Pay Equity Ratio</h4>
+                    <p>Fairness in compensation across the organization, including CEO-to-median-worker pay ratios.</p>
+                </div>
+            </div>
+            
+            <div class="methodology-section">
+                <h2>Limitations</h2>
+                <p>While we strive for comprehensive and accurate evaluations, our methodology has some limitations:</p>
+                <ul>
+                    <li>Data availability varies by hospital and may not reflect the most recent year</li>
+                    <li>Some metrics rely on self-reported data from hospitals</li>
+                    <li>Smaller hospitals may have less publicly available information</li>
+                    <li>Our scoring system may not capture all nuances of hospital performance</li>
+                </ul>
+                <p>We continuously work to improve our methodology and welcome feedback from hospitals and the public.</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <ul class="footer-links">
+                        <li><a href="#" id="home-link-methodology-footer">Home</a></li>
+                        <li><a href="#" id="rankings-link-methodology-footer">Rankings</a></li>
+                        <li><a href="https://georgiawatch.org" target="_blank">About Us</a></li>
                         <li><a href="#">Donate</a></li>
                         <li><a href="#">Legal/Privacy</a></li>
                     </ul>
@@ -1524,6 +1917,95 @@
 
             function setupEventListeners() {
                 console.log('Setting up event listeners...');
+                
+                // Navigation links
+                document.getElementById('rankings-link').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showRankingsPage();
+                });
+                
+                document.getElementById('methodology-link').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMethodologyPage();
+                });
+                
+                document.getElementById('home-link-footer').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMainPage();
+                });
+                
+                document.getElementById('rankings-link-footer').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showRankingsPage();
+                });
+                
+                document.getElementById('methodology-link-footer').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMethodologyPage();
+                });
+                
+                // Details page navigation
+                document.getElementById('rankings-link-details').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showRankingsPage();
+                });
+                
+                document.getElementById('methodology-link-details').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMethodologyPage();
+                });
+                
+                document.getElementById('rankings-link-details-footer').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showRankingsPage();
+                });
+                
+                document.getElementById('methodology-link-details-footer').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMethodologyPage();
+                });
+                
+                // Rankings page navigation
+                document.getElementById('home-link-rankings').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMainPage();
+                });
+                
+                document.getElementById('methodology-link-rankings').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMethodologyPage();
+                });
+                
+                document.getElementById('home-link-rankings-footer').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMainPage();
+                });
+                
+                document.getElementById('methodology-link-rankings-footer').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMethodologyPage();
+                });
+                
+                // Methodology page navigation
+                document.getElementById('home-link-methodology').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMainPage();
+                });
+                
+                document.getElementById('rankings-link-methodology').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showRankingsPage();
+                });
+                
+                document.getElementById('home-link-methodology-footer').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMainPage();
+                });
+                
+                document.getElementById('rankings-link-methodology-footer').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showRankingsPage();
+                });
                 
                 // Back to main page links
                 document.querySelectorAll('#back-to-main, #back-to-main-footer').forEach(link => {
@@ -1984,20 +2466,55 @@
             function showMainPage() {
                 const mainPage = document.getElementById('main-page');
                 const detailsPage = document.getElementById('details-page');
+                const rankingsPage = document.getElementById('rankings-page');
+                const methodologyPage = document.getElementById('methodology-page');
                 
                 mainPage.style.display = 'block';
                 detailsPage.style.display = 'none';
+                rankingsPage.style.display = 'none';
+                methodologyPage.style.display = 'none';
                 
                 // Update URL without page reload
                 window.history.pushState({}, '', window.location.pathname);
             }
 
+            function showRankingsPage() {
+                const mainPage = document.getElementById('main-page');
+                const detailsPage = document.getElementById('details-page');
+                const rankingsPage = document.getElementById('rankings-page');
+                const methodologyPage = document.getElementById('methodology-page');
+                
+                mainPage.style.display = 'none';
+                detailsPage.style.display = 'none';
+                rankingsPage.style.display = 'block';
+                methodologyPage.style.display = 'none';
+                
+                // Populate rankings tables
+                populateRankings();
+            }
+
+            function showMethodologyPage() {
+                const mainPage = document.getElementById('main-page');
+                const detailsPage = document.getElementById('details-page');
+                const rankingsPage = document.getElementById('rankings-page');
+                const methodologyPage = document.getElementById('methodology-page');
+                
+                mainPage.style.display = 'none';
+                detailsPage.style.display = 'none';
+                rankingsPage.style.display = 'none';
+                methodologyPage.style.display = 'block';
+            }
+
             function showDetailsPage(hospitalId) {
                 const mainPage = document.getElementById('main-page');
                 const detailsPage = document.getElementById('details-page');
+                const rankingsPage = document.getElementById('rankings-page');
+                const methodologyPage = document.getElementById('methodology-page');
                 
                 mainPage.style.display = 'none';
                 detailsPage.style.display = 'block';
+                rankingsPage.style.display = 'none';
+                methodologyPage.style.display = 'none';
                 
                 // Update URL without page reload
                 window.history.pushState({}, '', `?id=${hospitalId}`);
@@ -2092,6 +2609,127 @@
                     }
                 }
                 return starsHtml;
+            }
+
+            function populateRankings() {
+                // Sort hospitals by composite score (descending)
+                const sortedHospitals = [...hospitalsData].sort((a, b) => {
+                    // Calculate composite score for each hospital
+                    const aScore = calculateCompositeScore(a);
+                    const bScore = calculateCompositeScore(b);
+                    return bScore - aScore;
+                });
+                
+                // Populate overall rankings
+                let overallHtml = '';
+                sortedHospitals.forEach((hospital, index) => {
+                    const rank = index + 1;
+                    const type = hospital.TYPE_NonProfit ? "Nonprofit" : "For Profit";
+                    const location = hospital.TYPE_urban ? "Urban" : "Rural";
+                    const gradeClass = `grade-${hospital.TIER_1_GRADE_Lown_Composite}`;
+                    
+                    overallHtml += `
+                    <tr>
+                        <td class="rank-number">${rank}</td>
+                        <td><span class="grade-circle ${gradeClass}">${hospital.TIER_1_GRADE_Lown_Composite}</span></td>
+                        <td>${hospital.Name}</td>
+                        <td>${hospital.City}</td>
+                        <td>${type} (${location})</td>
+                    </tr>
+                    `;
+                });
+                document.getElementById('rankings-results').innerHTML = overallHtml;
+                
+                // Populate financial transparency rankings
+                const financialSorted = [...hospitalsData].sort((a, b) => {
+                    const aScore = (a.BalanceGrowth + a.Transparency + a.FiscalHealth + a.Staffing) / 4;
+                    const bScore = (b.BalanceGrowth + b.Transparency + b.FiscalHealth + b.Staffing) / 4;
+                    return bScore - aScore;
+                });
+                
+                let financialHtml = '';
+                financialSorted.forEach((hospital, index) => {
+                    const rank = index + 1;
+                    const score = (hospital.BalanceGrowth + hospital.Transparency + hospital.FiscalHealth + hospital.Staffing) / 4;
+                    
+                    financialHtml += `
+                    <tr>
+                        <td class="rank-number">${rank}</td>
+                        <td>${hospital.Name}</td>
+                        <td>${hospital.City}</td>
+                        <td>${Math.round(score)}</td>
+                    </tr>
+                    `;
+                });
+                document.getElementById('financial-rankings').innerHTML = financialHtml;
+                
+                // Populate affordability rankings
+                const affordabilitySorted = [...hospitalsData].sort((a, b) => {
+                    const aScore = (a.FinancialBurden + a.CharityCare + a.MedicalDebt) / 3;
+                    const bScore = (b.FinancialBurden + b.CharityCare + b.MedicalDebt) / 3;
+                    return bScore - aScore;
+                });
+                
+                let affordabilityHtml = '';
+                affordabilitySorted.forEach((hospital, index) => {
+                    const rank = index + 1;
+                    const score = (hospital.FinancialBurden + hospital.CharityCare + hospital.MedicalDebt) / 3;
+                    
+                    affordabilityHtml += `
+                    <tr>
+                        <td class="rank-number">${rank}</td>
+                        <td>${hospital.Name}</td>
+                        <td>${hospital.City}</td>
+                        <td>${Math.round(score)}</td>
+                    </tr>
+                    `;
+                });
+                document.getElementById('affordability-rankings').innerHTML = affordabilityHtml;
+                
+                // Populate access rankings
+                const accessSorted = [...hospitalsData].sort((a, b) => {
+                    const aScore = (a.RangeOfServices + a.DemographicAlignment + a.WorkforceTraining + a.PayEquityRatio) / 4;
+                    const bScore = (b.RangeOfServices + b.DemographicAlignment + b.WorkforceTraining + b.PayEquityRatio) / 4;
+                    return bScore - aScore;
+                });
+                
+                let accessHtml = '';
+                accessSorted.forEach((hospital, index) => {
+                    const rank = index + 1;
+                    const score = (hospital.RangeOfServices + hospital.DemographicAlignment + hospital.WorkforceTraining + hospital.PayEquityRatio) / 4;
+                    
+                    accessHtml += `
+                    <tr>
+                        <td class="rank-number">${rank}</td>
+                        <td>${hospital.Name}</td>
+                        <td>${hospital.City}</td>
+                        <td>${Math.round(score)}</td>
+                    </tr>
+                    `;
+                });
+                document.getElementById('access-rankings').innerHTML = accessHtml;
+            }
+
+            function calculateCompositeScore(hospital) {
+                // Calculate average of all metrics
+                const metrics = [
+                    hospital.BalanceGrowth,
+                    hospital.Transparency,
+                    hospital.FiscalHealth,
+                    hospital.Staffing,
+                    hospital.TaxBenefit,
+                    hospital.QualityOfCBS,
+                    hospital.StrategicUse,
+                    hospital.FinancialBurden,
+                    hospital.CharityCare,
+                    hospital.MedicalDebt,
+                    hospital.RangeOfServices,
+                    hospital.DemographicAlignment,
+                    hospital.WorkforceTraining,
+                    hospital.PayEquityRatio
+                ];
+                
+                return metrics.reduce((sum, score) => sum + score, 0) / metrics.length;
             }
 
             function initMainMap() {
