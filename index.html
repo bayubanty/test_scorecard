@@ -713,18 +713,16 @@
             font-size: 16px;
         }
 
-        .metrics-sidebar {
-            width: 350px;
+        /* Performance Metrics in Main Content */
+        .performance-metrics {
             background: white;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 25px;
-            height: fit-content;
-            position: sticky;
-            top: 20px;
+            margin-bottom: 25px;
         }
 
-        .metrics-sidebar h2 {
+        .performance-metrics h2 {
             color: #0053a1;
             margin-bottom: 20px;
             font-size: 22px;
@@ -936,12 +934,6 @@
 
             .details-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .metrics-sidebar {
-                width: 100%;
-                position: relative;
-                top: 0;
             }
             
             .hospital-header {
@@ -1237,8 +1229,12 @@
 
         <div class="container">
             <div class="main-content">
-                <!-- Hospital Information -->
-                <div class="content-area" style="flex: 1;">
+                <!-- Hospital Information and Performance Metrics in Main Content -->
+                <div class="content-area">
+                    <!-- Back button -->
+                    <a href="#" class="back-button" id="back-to-main-details">← Back to Results</a>
+                    
+                    <!-- Hospital Information -->
                     <div class="hospital-card">
                         <div class="hospital-header">
                             <h1 class="hospital-name" id="hospitalName">Loading Hospital Information...</h1>
@@ -1251,177 +1247,177 @@
                         
                         <div class="hospital-description">
                             <h3>About This Hospital</h3>
-                            <p id="hospitalDescription">Detailed performance metrics and ratings for this hospital are displayed in the sidebar. Each metric is rated on a 5-star scale based on the hospital's performance data.</p>
+                            <p id="hospitalDescription">Detailed performance metrics and ratings for this hospital are displayed below. Each metric is rated on a 5-star scale based on the hospital's performance data.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Performance Metrics in Main Content -->
+                    <div class="performance-metrics">
+                        <h2>Performance Metrics</h2>
+                        
+                        <!-- Financial Transparency Metrics -->
+                        <div class="metric-dropdown">
+                            <div class="dropdown-header active" data-metric="financialTransparency">
+                                <span>Financial Transparency & Community Benefit</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-content show">
+                                <div class="metric-item" id="metricBalanceGrowth">
+                                    <div class="metric-title">Balance Growth</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsBalanceGrowth">-</div>
+                                        <div class="metric-value" id="valueBalanceGrowth">-</div>
+                                    </div>
+                                    <div class="metric-description">Measures the hospital's financial growth and stability over time</div>
+                                </div>
+                                
+                                <div class="metric-item" id="metricTransparency">
+                                    <div class="metric-title">Transparency</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsTransparency">-</div>
+                                        <div class="metric-value" id="valueTransparency">-</div>
+                                    </div>
+                                    <div class="metric-description">Assessment of financial disclosure and reporting practices</div>
+                                </div>
+                                
+                                <div class="metric-item" id="metricFiscalHealth">
+                                    <div class="metric-title">Fiscal Health</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsFiscalHealth">-</div>
+                                        <div class="metric-value" id="valueFiscalHealth">-</div>
+                                    </div>
+                                    <div class="metric-description">Overall financial stability and resource management</div>
+                                </div>
+                                
+                                <div class="metric-item" id="metricStaffing">
+                                    <div class="metric-title">Staffing</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsStaffing">-</div>
+                                        <div class="metric-value" id="valueStaffing">-</div>
+                                    </div>
+                                    <div class="metric-description">Adequacy and quality of healthcare staffing</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Community Benefit Spending Metrics -->
+                        <div class="metric-dropdown">
+                            <div class="dropdown-header" data-metric="communityBenefit">
+                                <span>Community Benefit Spending</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-content">
+                                <div class="metric-item" id="metricTaxBenefit">
+                                    <div class="metric-title">Tax Benefit Utilization</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsTaxBenefit">-</div>
+                                        <div class="metric-value" id="valueTaxBenefit">-</div>
+                                    </div>
+                                    <div class="metric-description">Effective use of tax benefits for community programs</div>
+                                </div>
+                                
+                                <div class="metric-item" id="metricQualityOfCBS">
+                                    <div class="metric-title">Quality of Community Benefit Spending</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsQualityOfCBS">-</div>
+                                        <div class="metric-value" id="valueQualityOfCBS">-</div>
+                                    </div>
+                                    <div class="metric-description">Effectiveness and impact of community benefit programs</div>
+                                </div>
+                                
+                                <div class="metric-item" id="metricStrategicUse">
+                                    <div class="metric-title">Strategic Use of Resources</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsStrategicUse">-</div>
+                                        <div class="metric-value" id="valueStrategicUse">-</div>
+                                    </div>
+                                    <div class="metric-description">Strategic allocation of community benefit resources</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Healthcare Affordability Metrics -->
+                        <div class="metric-dropdown">
+                            <div class="dropdown-header" data-metric="healthcareAffordability">
+                                <span>Healthcare Affordability & Billing</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-content">
+                                <div class="metric-item" id="metricFinancialBurden">
+                                    <div class="metric-title">Financial Burden on Patients</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsFinancialBurden">-</div>
+                                        <div class="metric-value" id="valueFinancialBurden">-</div>
+                                    </div>
+                                    <div class="metric-description">Impact of healthcare costs on patients' financial wellbeing</div>
+                                </div>
+                                
+                                <div class="metric-item" id="metricCharityCare">
+                                    <div class="metric-title">Charity Care Provision</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsCharityCare">-</div>
+                                        <div class="metric-value" id="valueCharityCare">-</div>
+                                    </div>
+                                    <div class="metric-description">Extent and quality of charity care services provided</div>
+                                </div>
+                                
+                                <div class="metric-item" id="metricMedicalDebt">
+                                    <div class="metric-title">Medical Debt Management</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsMedicalDebt">-</div>
+                                        <div class="metric-value" id="valueMedicalDebt">-</div>
+                                    </div>
+                                    <div class="metric-description">Approaches to managing and preventing patient medical debt</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Healthcare Access Metrics -->
+                        <div class="metric-dropdown">
+                            <div class="dropdown-header" data-metric="accessAndResponsibility">
+                                <span>Healthcare Access & Social Responsibility</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-content">
+                                <div class="metric-item" id="metricRangeOfServices">
+                                    <div class="metric-title">Range of Services</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsRangeOfServices">-</div>
+                                        <div class="metric-value" id="valueRangeOfServices">-</div>
+                                    </div>
+                                    <div class="metric-description">Diversity and comprehensiveness of healthcare services offered</div>
+                                </div>
+                                
+                                <div class="metric-item" id="metricDemographicAlignment">
+                                    <div class="metric-title">Demographic Alignment</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsDemographicAlignment">-</div>
+                                        <div class="metric-value" id="valueDemographicAlignment">-</div>
+                                    </div>
+                                    <div class="metric-description">Alignment with community demographic needs</div>
+                                </div>
+                                
+                                <div class="metric-item" id="metricWorkforceTraining">
+                                    <div class="metric-title">Workforce Training</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsWorkforceTraining">-</div>
+                                        <div class="metric-value" id="valueWorkforceTraining">-</div>
+                                    </div>
+                                    <div class="metric-description">Investment in staff training and development</div>
+                                </div>
+                                
+                                <div class="metric-item" id="metricPayEquityRatio">
+                                    <div class="metric-title">Pay Equity Ratio</div>
+                                    <div class="star-rating">
+                                        <div class="stars" id="starsPayEquityRatio">-</div>
+                                        <div class="metric-value" id="valuePayEquityRatio">-</div>
+                                    </div>
+                                    <div class="metric-description">Fairness in compensation across the organization</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Metrics Sidebar -->
-                <aside class="metrics-sidebar">
-                    <h2>Performance Metrics</h2>
-                    
-                    <!-- Financial Transparency Metrics -->
-                    <div class="metric-dropdown">
-                        <div class="dropdown-header active" data-metric="financialTransparency">
-                            <span>Financial Transparency & Community Benefit</span>
-                            <span class="dropdown-arrow">▼</span>
-                        </div>
-                        <div class="dropdown-content show">
-                            <div class="metric-item" id="metricBalanceGrowth">
-                                <div class="metric-title">Balance Growth</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsBalanceGrowth">-</div>
-                                    <div class="metric-value" id="valueBalanceGrowth">-</div>
-                                </div>
-                                <div class="metric-description">Measures the hospital's financial growth and stability over time</div>
-                            </div>
-                            
-                            <div class="metric-item" id="metricTransparency">
-                                <div class="metric-title">Transparency</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsTransparency">-</div>
-                                    <div class="metric-value" id="valueTransparency">-</div>
-                                </div>
-                                <div class="metric-description">Assessment of financial disclosure and reporting practices</div>
-                            </div>
-                            
-                            <div class="metric-item" id="metricFiscalHealth">
-                                <div class="metric-title">Fiscal Health</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsFiscalHealth">-</div>
-                                    <div class="metric-value" id="valueFiscalHealth">-</div>
-                                </div>
-                                <div class="metric-description">Overall financial stability and resource management</div>
-                            </div>
-                            
-                            <div class="metric-item" id="metricStaffing">
-                                <div class="metric-title">Staffing</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsStaffing">-</div>
-                                    <div class="metric-value" id="valueStaffing">-</div>
-                                </div>
-                                <div class="metric-description">Adequacy and quality of healthcare staffing</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Community Benefit Spending Metrics -->
-                    <div class="metric-dropdown">
-                        <div class="dropdown-header" data-metric="communityBenefit">
-                            <span>Community Benefit Spending</span>
-                            <span class="dropdown-arrow">▼</span>
-                        </div>
-                        <div class="dropdown-content">
-                            <div class="metric-item" id="metricTaxBenefit">
-                                <div class="metric-title">Tax Benefit Utilization</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsTaxBenefit">-</div>
-                                    <div class="metric-value" id="valueTaxBenefit">-</div>
-                                </div>
-                                <div class="metric-description">Effective use of tax benefits for community programs</div>
-                            </div>
-                            
-                            <div class="metric-item" id="metricQualityOfCBS">
-                                <div class="metric-title">Quality of Community Benefit Spending</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsQualityOfCBS">-</div>
-                                    <div class="metric-value" id="valueQualityOfCBS">-</div>
-                                </div>
-                                <div class="metric-description">Effectiveness and impact of community benefit programs</div>
-                            </div>
-                            
-                            <div class="metric-item" id="metricStrategicUse">
-                                <div class="metric-title">Strategic Use of Resources</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsStrategicUse">-</div>
-                                    <div class="metric-value" id="valueStrategicUse">-</div>
-                                </div>
-                                <div class="metric-description">Strategic allocation of community benefit resources</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Healthcare Affordability Metrics -->
-                    <div class="metric-dropdown">
-                        <div class="dropdown-header" data-metric="healthcareAffordability">
-                            <span>Healthcare Affordability & Billing</span>
-                            <span class="dropdown-arrow">▼</span>
-                        </div>
-                        <div class="dropdown-content">
-                            <div class="metric-item" id="metricFinancialBurden">
-                                <div class="metric-title">Financial Burden on Patients</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsFinancialBurden">-</div>
-                                    <div class="metric-value" id="valueFinancialBurden">-</div>
-                                </div>
-                                <div class="metric-description">Impact of healthcare costs on patients' financial wellbeing</div>
-                            </div>
-                            
-                            <div class="metric-item" id="metricCharityCare">
-                                <div class="metric-title">Charity Care Provision</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsCharityCare">-</div>
-                                    <div class="metric-value" id="valueCharityCare">-</div>
-                                </div>
-                                <div class="metric-description">Extent and quality of charity care services provided</div>
-                            </div>
-                            
-                            <div class="metric-item" id="metricMedicalDebt">
-                                <div class="metric-title">Medical Debt Management</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsMedicalDebt">-</div>
-                                    <div class="metric-value" id="valueMedicalDebt">-</div>
-                                </div>
-                                <div class="metric-description">Approaches to managing and preventing patient medical debt</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Healthcare Access Metrics -->
-                    <div class="metric-dropdown">
-                        <div class="dropdown-header" data-metric="accessAndResponsibility">
-                            <span>Healthcare Access & Social Responsibility</span>
-                            <span class="dropdown-arrow">▼</span>
-                        </div>
-                        <div class="dropdown-content">
-                            <div class="metric-item" id="metricRangeOfServices">
-                                <div class="metric-title">Range of Services</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsRangeOfServices">-</div>
-                                    <div class="metric-value" id="valueRangeOfServices">-</div>
-                                </div>
-                                <div class="metric-description">Diversity and comprehensiveness of healthcare services offered</div>
-                            </div>
-                            
-                            <div class="metric-item" id="metricDemographicAlignment">
-                                <div class="metric-title">Demographic Alignment</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsDemographicAlignment">-</div>
-                                    <div class="metric-value" id="valueDemographicAlignment">-</div>
-                                </div>
-                                <div class="metric-description">Alignment with community demographic needs</div>
-                            </div>
-                            
-                            <div class="metric-item" id="metricWorkforceTraining">
-                                <div class="metric-title">Workforce Training</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsWorkforceTraining">-</div>
-                                    <div class="metric-value" id="valueWorkforceTraining">-</div>
-                                </div>
-                                <div class="metric-description">Investment in staff training and development</div>
-                            </div>
-                            
-                            <div class="metric-item" id="metricPayEquityRatio">
-                                <div class="metric-title">Pay Equity Ratio</div>
-                                <div class="star-rating">
-                                    <div class="stars" id="starsPayEquityRatio">-</div>
-                                    <div class="metric-value" id="valuePayEquityRatio">-</div>
-                                </div>
-                                <div class="metric-description">Fairness in compensation across the organization</div>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
             </div>
         </div>
 
@@ -2018,7 +2014,7 @@
                 });
                 
                 // Back to main page links
-                document.querySelectorAll('#back-to-main, #back-to-main-footer').forEach(link => {
+                document.querySelectorAll('#back-to-main, #back-to-main-footer, #back-to-main-details').forEach(link => {
                     link.addEventListener('click', function(e) {
                         e.preventDefault();
                         showMainPage();
